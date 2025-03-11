@@ -3,29 +3,30 @@ package section01.quiz07;
 import java.util.Scanner;
 
 public class Main {
-
-	public String solution(String str) {
-//		// 방법 1
+//	public String solution(String str) {
 //		String answer = "YES";
-//		str = str.toUpperCase();
-//		int len = str.length();
-//		for(int i = 0; i < len / 2; i++) {
-//			if(str.charAt(i) != str.charAt(len - 1 - i)) return "NO";
+//		int lt = 0, rt = str.length() - 1;
+//		char[] s = str.toUpperCase().toCharArray();
+//		while (lt < rt) {
+//			if (s[lt] != s[rt]) {
+//				answer = "NO";
+//				break;
+//			}
+//			lt++;
+//			rt--;
 //		}
 //		return answer;
-		
-		// 방법 2
-		String answer = "NO";
+//	}
+
+	public String solution(String str) {
 		String tmp = new StringBuilder(str).reverse().toString();
-		if(str.equalsIgnoreCase(tmp)) answer = "YES";
-		return answer;
+		return str.equalsIgnoreCase(tmp) ? "YES" : "NO";
 	}
-	
+
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		String str = kb.next();
-		System.out.println(T.solution(str));
+		System.out.print(T.solution(str));
 	}
-
 }

@@ -4,29 +4,47 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
-	public boolean isPrime(int num) {
-		if (num == 1)return false;
-		for (int i = 2; i < num; i++) {
-			if (num % i == 0) return false;
-		}
-		return true;
-	}
+//	public ArrayList<Integer> solution(int n, int[] arr) {
+//		ArrayList<Integer> answer = new ArrayList<>();
+//		// 뒤집기 -> 소수이면 출력(첫 자리 0은 무시)
+//		for (int i : arr) {
+//			int tmp = Integer.valueOf(new StringBuilder(String.valueOf(i)).reverse().toString());
+//			if (isPrime(tmp)) {
+//				answer.add(tmp);
+//			}
+//		}
+//		return answer;
+//	}
 
 	public ArrayList<Integer> solution(int n, int[] arr) {
 		ArrayList<Integer> answer = new ArrayList<>();
-		for (int i = 0; i < n; i++) {
-			int tmp = arr[i];
-			int res = 0;
-			while(tmp > 0) {
-				// 일의 자리 추출
-				int t = tmp % 10;
-				// 더하기
-				res = res * 10 + t;
-				// 교체
+		// 뒤집기 -> 소수이면 출력(첫 자리 0은 무시)
+		for (int i : arr) {
+			int tmp = i;
+			int reverse = 0;
+			while (tmp > 0) {
+				int last = tmp % 10;
+				reverse = (reverse * 10) + last;
 				tmp = tmp / 10;
 			}
-			if (isPrime(res))answer.add(res);
+			if (isPrime(reverse)) {
+				answer.add(reverse);
+			}
+		}
+		return answer;
+	}
+
+	public boolean isPrime(int n) {
+		boolean answer = true;
+		if (n == 1) {
+			answer = false;
+		} else {
+			for (int i = 2; i < n; i++) {
+				if (n % i == 0) {
+					answer = false;
+					break;
+				}
+			}
 		}
 		return answer;
 	}
@@ -39,9 +57,8 @@ public class Main {
 		for (int i = 0; i < n; i++) {
 			arr[i] = kb.nextInt();
 		}
-		for(int x : T.solution(n, arr)) {
-			System.out.print(x + " ");
+		for (int i : T.solution(n, arr)) {
+			System.out.print(i + " ");
 		}
 	}
-
 }

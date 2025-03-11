@@ -4,28 +4,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-	
-	public ArrayList<String> solution(int n, String[] str) {
-		ArrayList<String> answer = new ArrayList<>();
-//		// 방법1
-//		for(String x : str) {
-//			String tmp = new StringBuilder(x).reverse().toString();
+
+//	public ArrayList<String> solution(int n, String[] words) {
+//		ArrayList<String> answer = new ArrayList<>();
+//		for(String word : words) {
+//			String tmp = new StringBuilder(word).reverse().toString();
 //			answer.add(tmp);
 //		}
-		
-		// 방법2
-		for(String x : str) {
-			char[] s = x.toCharArray();
-			int lt = 0, rt = x.length() - 1;
-			while(lt < rt) {
-				char tmp = s[lt];
-				s[lt] = s[rt];
-				s[rt] = tmp;
-				lt++;
-				rt--;
-			}
-			String tmp = String.valueOf(s);
-			answer.add(tmp);
+//		return answer;
+//	}
+
+	public ArrayList<String> solution(int n, String[] words) {
+		ArrayList<String> answer = new ArrayList<>();
+		for (String w : words) {
+			StringBuilder str = new StringBuilder(w).reverse();
+			answer.add(str.toString());
 		}
 		return answer;
 	}
@@ -34,13 +27,13 @@ public class Main {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		int n = kb.nextInt();
-		String[] str = new String[n];
-		for(int i = 0; i < n; i++) {
-			str[i] = kb.next();
+		kb.nextLine();
+		String[] words = new String[n];
+		for (int i = 0; i < n; i++) {
+			words[i] = kb.next();
 		}
-		for(String x : T.solution(n, str)) {
-			System.out.println(x);
+		for (String word : T.solution(n, words)) {
+			System.out.println(word);
 		}
 	}
-
 }

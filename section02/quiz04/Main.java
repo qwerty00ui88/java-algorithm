@@ -1,44 +1,29 @@
 package section02.quiz04;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-	
-	// 방법1 - 배열
-	public int[] solution(int n) {
-		int[] answer = new int[n];
-		answer[0] = 1;
-		answer[1] = 1;
-		for(int i = 2; i < n; i++) {
-			answer[i] = answer[i - 2] + answer[i - 1];
+
+	public ArrayList<Integer> solution(int n) {
+		ArrayList<Integer> answer = new ArrayList<>();
+		answer.add(1);
+		answer.add(1);
+		int l = answer.size();
+		while (n > l) {
+			answer.add(answer.get(l - 2) + answer.get(l - 1));
+			l++;
 		}
 		return answer;
 	}
-	
+
 	public static void main(String[] args) {
 		Main T = new Main();
 		Scanner kb = new Scanner(System.in);
 		int n = kb.nextInt();
-		for(int x : T.solution(n)) System.out.print(x + " ");
+		for (int i : T.solution(n)) {
+			System.out.print(i + " ");
+		}
+
 	}
-	
-	// 방법2 - 배열X
-//	public void solution(int n) {
-//		int a = 1, b = 1, c;
-//		System.out.print(a + " " + b);
-//		for(int i = 2; i < n; i++) {
-//			c = a + b;
-//			System.out.print(" " + c);
-//			a = b;
-//			b = c;
-//		}
-//	}
-//	
-//	public static void main(String[] args) {
-//		Main T = new Main();
-//		Scanner kb = new Scanner(System.in);
-//		int n = kb.nextInt();
-//		T.solution(n);
-//	}
-	
 }
