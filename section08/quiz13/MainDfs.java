@@ -2,7 +2,7 @@ package section08.quiz13;
 
 import java.util.Scanner;
 
-class Main {
+class MainDfs {
 	static int n, answer;
 	static int[][] board;
 	static int[] dx = { -1, -1, 0, 1, 1, 1, 0, -1 };
@@ -20,7 +20,7 @@ class Main {
 	}
 
 	public static void main(String[] args) {
-		Main T = new Main();
+		MainDfs T = new MainDfs();
 		Scanner kb = new Scanner(System.in);
 		n = kb.nextInt();
 		board = new int[n][n];
