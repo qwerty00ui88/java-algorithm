@@ -20,7 +20,7 @@ class Edge implements Comparable<Edge> {
 
 }
 
-public class Main {
+public class MainKruskal {
 	static int[] unf;
 
 	public static int Find(int v) {
@@ -57,7 +57,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		Main T = new Main();
+		MainKruskal T = new MainKruskal();
 		Scanner kb = new Scanner(System.in);
 		int v = kb.nextInt();
 		int e = kb.nextInt();
